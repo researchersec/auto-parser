@@ -1,0 +1,30 @@
+name: Parse Demo File
+
+on:
+  push:
+    paths:
+      - '**/*.dem'
+
+jobs:
+  parse-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install demoparser2
+
+    - name: Parse demo file
+      run: |
+        # Here, you'll use demoparser2's command or script to parse the .demo file.
+        # This is a placeholder; replace with the actual command or script.
+        python parse_demo.py

@@ -1,30 +1,42 @@
-name: Parse Demo File
+name: Parse External Demo File
 
 on:
   push:
-    paths:
-      - '**/*.dem'
+    paths-ignore:
+      - '**/*.dem' # No need to trigger on .dem files since we're downloading externally
 
 jobs:
   parse-demo:
     runs-on: ubuntu-latest
 
     steps:
+    # Step to checkout your repository code, needed for scripts and other repo files
     - name: Checkout code
       uses: actions/checkout@v2
 
+    # Step to download the demo file from an external source using wget
+    - name: Download the demo file
+      run: |
+        wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" https://cs2breakdown.com/demos/faze-vs-legends-m2-nuke.dem
+
+    # Setup Python environment
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
 
+    # Install necessary Python packages
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install demoparser2
 
+    # Parse the downloaded demo file
     - name: Parse demo file
-      run: |
-        # Here, you'll use demoparser2's command or script to parse the .demo file.
-        # This is a placeholder; replace with the actual command or script.
-        python parse_demo.py
+      run: python parse_demo.py
+
+    # Optional: Cleanup if you want to explicitly delete the downloaded file
+    # This step might be unnecessary since the GitHub Action runner will discard it after execution
+    #- name: Cleanup downloaded demo
+      #run: |
+        #rm [name_of_downloaded_file.dem]

@@ -14,7 +14,7 @@ def compute_file_hash(filename):
 
 def parse_demo_file():
     for file in os.listdir():
-        if file.endswith(".demo"):
+        if file.endswith(".dem"):
             parser = DemoParser(file)
             
             # Parse player_death event for players X and Y

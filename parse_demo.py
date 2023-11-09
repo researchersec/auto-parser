@@ -28,8 +28,8 @@ def parse_demo_file():
             # Save event_df and ticks_df to JSON files in their respective folders
             os.makedirs('events', exist_ok=True)
             os.makedirs('ticks', exist_ok=True)
-            event_df.to_json(f'events/{file_hash}.json')
-            ticks_df.to_json(f'ticks/{file_hash}.json')
+            event_df.to_json(f'events/{file_hash}.json', indent=4)
+            ticks_df.to_json(f'ticks/{file_hash}.json', indent=4)
 
 if __name__ == "__main__":
     parse_demo_file()

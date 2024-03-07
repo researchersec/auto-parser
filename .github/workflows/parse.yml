@@ -35,13 +35,6 @@ jobs:
     - name: Parse demo file
       run: python parse_demo.py
 
-    # Optional: Cleanup if you want to explicitly delete the downloaded file
-    # This step might be unnecessary since the GitHub Action runner will discard it after execution
-    #- name: Cleanup downloaded demo
-      #run: |
-        #rm [name_of_downloaded_file.dem]
-          # ... [previous steps]
-
     # Commit and push the generated JSON files
     - name: Commit and push JSON files
       run: |

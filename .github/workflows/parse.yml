@@ -17,7 +17,7 @@ jobs:
     # Step to download the demo file from an external source using wget
     - name: Download the demo file
       run: |
-        wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" https://cs2breakdown.com/demos/faze-vs-legends-m2-nuke.dem
+        wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" https://cs2breakdown.com/demos/heroic-vs-imperial-mirage.dem
 
     # Setup Python environment
     - name: Set up Python

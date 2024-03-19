@@ -42,5 +42,12 @@ jobs:
         git config --global user.email 'action@github.com'
         git add events/*.json
         git add ticks/*.json
+        git add convars/*.json
+        git add grenades/*.json
+        git add chat/*.json
+        git add player_info/*.json
+        git add item_drops/*.json
+        git add skins/*.json
+        
         git commit -m "Add parsed JSON files" || echo "No changes to commit"
         git push
